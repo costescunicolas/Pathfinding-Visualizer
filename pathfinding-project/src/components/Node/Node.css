@@ -1,0 +1,45 @@
+.node {
+	width: 20px;
+	height: 20px;
+	border: 1px solid #ccc;
+	transition: background-color 0.2s ease, transform 0.1s ease;
+	cursor: pointer;
+}
+
+/* States */
+.node-start {
+	background-color: #00b894; /* green */
+}
+
+.node-end {
+	background-color: #d63031; /* red */
+}
+
+.node-wall {
+	background-color: #2d3436; /* dark gray */
+}
+
+.node-visited {
+	background-color: #0984e3; /* blue */
+	animation: visitedAnimation 0.3s forwards;
+}
+
+.node-path {
+	background-color: #fdcb6e; /* yellow */
+}
+
+/* Hover effect */
+.node:hover {
+	transform: scale(1.1);
+	border-color: #888;
+}
+
+/* Animations */
+@keyframes visitedAnimation {
+	from {
+		background-color: #74b9ff;
+	}
+	to {
+		background-color: #0984e3;
+	}
+}

@@ -1,0 +1,87 @@
+/* Header.css */
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: #1e293b; /* dark navy */
+	color: #f8fafc;
+	padding: 1rem 2rem;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  }
+  
+  .header-title {
+	margin: 0;
+	font-size: 1.8rem;
+	font-weight: 600;
+	letter-spacing: 1px;
+  }
+  
+  .header-controls {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-top: 1rem;
+	flex-wrap: wrap; /* responsive */
+  }
+  
+  .header-label {
+	font-size: 1rem;
+  }
+  
+  .header-select {
+	padding: 0.4rem 0.8rem;
+	border-radius: 6px;
+	border: 1px solid #94a3b8;
+	background: #f8fafc;
+	color: #0f172a;
+	font-size: 1rem;
+	outline: none;
+	transition: border 0.2s, box-shadow 0.2s;
+  }
+  
+  .header-select:focus {
+	border-color: #38bdf8;
+	box-shadow: 0 0 4px #38bdf8;
+  }
+  
+  .header-btn {
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: 500;
+	transition: background 0.2s, transform 0.1s;
+  }
+  
+  .header-btn.start {
+	background: #22c55e;
+	color: white;
+  }
+  
+  .header-btn.start:hover {
+	background: #16a34a;
+	transform: scale(1.05);
+  }
+  
+  .header-btn.reset {
+	background: #ef4444;
+	color: white;
+  }
+  
+  .header-btn.reset:hover {
+	background: #dc2626;
+	transform: scale(1.05);
+  }
+  
+  @media (max-width: 600px) {
+	.header-controls {
+	  flex-direction: column;
+	  align-items: stretch;
+	}
+  
+	.header-select,
+	.header-btn {
+	  width: 100%;
+	}
+  }
+  
