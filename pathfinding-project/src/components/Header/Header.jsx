@@ -4,8 +4,8 @@ import "./Header.css";
 import { usePathfindingContext } from "../../context/PathfindingContext";
 
 const Header = () => {
+  const { startAlgorithm, resetGrid, setAlgorithm, generateMaze } = usePathfindingContext();
 
-	const {startAlgorithm, resetGrid, setAlgorithm} = usePathfindingContext();
   return (
     <header className="header">
       <h1 className="header-title">Pathfinding Visualizer</h1>
@@ -26,11 +26,15 @@ const Header = () => {
           <option value="A-Star">A-Star</option>
         </select>
 
-        <button className="header-btn start" onClick={() => startAlgorithm()}>
+        <button className="header-btn start" onClick={startAlgorithm}>
           Start
         </button>
         <button className="header-btn reset" onClick={resetGrid}>
           Reset
+        </button>
+        {/* New Maze Button */}
+        <button className="header-btn maze" onClick={generateMaze}>
+          Generate Maze
         </button>
       </div>
     </header>

@@ -1,6 +1,7 @@
 import { createContext } from "react";
 import { useState, useContext } from "react";
-import { algorithmFactory, bfsAlgorithm } from "../algorithms";
+import { algorithmFactory, bfsAlgorithm } from "../lib/algorithms";
+import { dfsMaze } from "../lib/maze";
 
 export const PathfindingContext = createContext();
 
@@ -61,6 +62,28 @@ export const PathfindingProvider = ({children}) => {
 		}
 		return false;
 	}
+
+	const generateMaze = () => {
+		
+		if (existStartNode()) return;
+
+		setGrid(prevGrid => {
+			// Make all cells walls
+			const wallGrid = prevGrid.map(row =>
+				row.map(node => ({
+					...node,
+					isWall: true,
+					isStart: false,
+					isEnd: false,
+					isVisited: false,
+					isPath: false
+				}))
+			);
+	
+			return dfsMaze(wallGrid);
+		});
+	}
+	
 
 	const existEndNode = () => {
 		for (const row of grid) {
@@ -151,7 +174,8 @@ export const PathfindingProvider = ({children}) => {
 		startAlgorithm,
 		handleMouseDown,
 		handleMouseEnter,
-		handleMouseUp
+		handleMouseUp,
+		generateMaze
 	}
 
 	return (

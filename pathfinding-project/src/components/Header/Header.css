@@ -84,4 +84,13 @@
 	  width: 100%;
 	}
   }
+  .header-btn.maze {
+	background: #3b82f6; /* nice blue */
+	color: white;
+  }
+  
+  .header-btn.maze:hover {
+	background: #2563eb;
+	transform: scale(1.05);
+  }
   
